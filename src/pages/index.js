@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import Logo from '../components/logo';
 import '../styles/default.css';
 
 const Container = styled.div`
@@ -12,30 +12,65 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const StyledLink = styled(Link)`
-  border: 1px solid white;
-  padding: 2rem 3rem;
-  text-decoration: none;
-  color: inherit;
-  &:hover {
-    color: #333;
-    background-color: white;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+const Info = styled.p`
+  margin-bottom: 3rem;
 `;
 
-const Info = styled.p`
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+const Title = styled.h1`
+  font-weight: light;
+`;
+
+const Page = styled.div`
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 5.75rem;
+  width: 100vw;
+  background-color: ${props => (props.invert ? 'white' : 'black')};
+  color: ${props => (props.invert ? '#444' : 'white')};
+`;
+
+const Item = styled.p`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Content = styled.section`
+  padding: 2rem;
 `;
 
 const Index = () => {
   return (
     <Container>
-      <Info>One For The Crow is a venue in Melbourne's west serving plant based/vegan foods, coffee and a world of plant paraphernalia.</Info>
-      <StyledLink to="/menu">View our Menu</StyledLink>
+      <Page>
+        <Content>
+          <Logo />
+          <Title>We need some witty buns</Title>
+        </Content>
+      </Page>
+      <Page id="OurStory">
+        <Content>
+          <Title>Our Westside Story</Title>
+          <Info>
+            One For The Crow is a venue in Melbourne's west serving plant
+            based/vegan foods, coffee and a world of plant paraphernalia.
+          </Info>
+        </Content>
+      </Page>
+      <Page id="Menu">
+        <Content>
+          <Title>This is our Menu!</Title>
+          <Item>
+            <span>sdgdsgdsgdsdsg dsgsd gdsgd sg</span>
+            <span>$22.90</span>
+          </Item>
+          <Item>
+            <span>sdgds gdsgreg dsdsg dsgsd gdrgsgd sg</span>
+            <span>$43.90</span>
+          </Item>
+        </Content>
+      </Page>
     </Container>
   );
-}
+};
 
 export default Index;
