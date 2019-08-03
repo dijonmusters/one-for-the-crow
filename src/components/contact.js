@@ -7,7 +7,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import Content from './styled/content';
-import FullWidth from './styled/FullWidth';
+import FullWidth from './styled/fullWidth';
 import Map from './map';
 
 const ContactPanel = styled(FullWidth)`

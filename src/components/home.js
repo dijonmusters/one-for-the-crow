@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Content from './styled/content';
-import FullWidth from './styled/FullWidth';
+import FullWidth from './styled/fullWidth';
 import Logo from './logo';
 
 const FullWidthBanner = styled(FullWidth)`
