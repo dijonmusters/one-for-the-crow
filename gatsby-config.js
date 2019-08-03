@@ -6,17 +6,24 @@
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`
-      }
+        path: `${__dirname}/src/images/`,
+      },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
-  ]
-}
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `menus`,
+        path: `${__dirname}/src/menus/`,
+      },
+    },
+    `gatsby-transformer-pdf`,
+  ],
+};

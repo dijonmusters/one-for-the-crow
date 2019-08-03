@@ -1,58 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import Bird from './bird';
 
-const StyledLink = styled(Link)`
-  position: relative;
-  padding: 0.25rem 3rem;
-  text-decoration: ${props => (props.active ? 'underline' : 'none')};
+const Item = styled.button`
+  background: none;
   color: inherit;
-  border: 2px solid transparent;
-  &:first-child {
-    border-left: 2px solid white;
-  }
-  &:last-child {
-    border-right: 2px solid white;
-  }
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 1rem 0;
   &:hover {
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    text-decoration: underline;
   }
-  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   &:not(:first-child) ::before {
     content: '';
     position: absolute;
-    left: -1px;
+    left: -2px;
     top: 50%;
     transform: translateY(-50%);
-    height: 50%;
+    height: 25%;
     width: 1px;
-    background-color: #ddd;
+    background-color: white;
   }
 `;
 
 const Nav = styled.nav`
-  width: 100%;
-  height: 3rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
+  justify-content: space-around;
+  align-items: stretch;
   background-color: black;
-  z-index: 1;
-  &:hover > a {
-    border-right: 2px solid transparent;
-    border-left: 2px solid transparent;
-  }
 `;
 
-const Navbar = props => {
+const Navbar = ({ homeRef, menuRef, contactRef }) => {
   return (
     <Nav>
-      <StyledLink to="/">TOP</StyledLink>
-      <StyledLink to="/#OurStory">OUR STORY</StyledLink>
-      <StyledLink to="/#Menu">MENU</StyledLink>
+      <Item onClick={() => homeRef.current.scrollIntoView()}>
+        <Bird />
+      </Item>
+      <Item onClick={() => menuRef.current.scrollIntoView()}>MENU</Item>
+      <Item onClick={() => contactRef.current.scrollIntoView()}>CONTACT</Item>
     </Nav>
   );
 };

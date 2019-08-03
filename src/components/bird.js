@@ -7,19 +7,18 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 0;
 `;
 
 const StyledImg = styled(Img)`
-  width: 200px;
+  width: 40px;
 `;
 
 const Logo = props => {
   return (
     <StaticQuery
       query={graphql`
-        query LogoImageQuery {
-          logoImage: file(absolutePath: { regex: "/logo/" }) {
+        query LogoBirdQuery {
+          logoBird: file(absolutePath: { regex: "/bird/" }) {
             childImageSharp {
               fluid(maxWidth: 980) {
                 ...GatsbyImageSharpFluid
@@ -29,7 +28,7 @@ const Logo = props => {
         }
       `}
       render={data => {
-        const { fluid } = data.logoImage.childImageSharp;
+        const { fluid } = data.logoBird.childImageSharp;
         return (
           <ImageContainer to="/">
             <StyledImg fluid={fluid} alt="One for the crow logo" />

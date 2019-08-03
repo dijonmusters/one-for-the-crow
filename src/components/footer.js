@@ -10,8 +10,6 @@ import {
 const StyledFooter = styled.footer`
   background-color: white;
   color: #444;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   display: flex;
   align-items: center;
