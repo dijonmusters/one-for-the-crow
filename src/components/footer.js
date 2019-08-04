@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -68,7 +68,11 @@ const Line = styled.span`
   display: block;
 `;
 
-const Footer = props => {
+const Footer = ({ setFooterRef }) => {
+  const footerRef = useRef();
+  useEffect(() => {
+    setFooterRef(footerRef);
+  });
   return (
     <StyledFooter>
       <Section>

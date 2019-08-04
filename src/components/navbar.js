@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Bird from './bird';
 
@@ -35,7 +35,11 @@ const Nav = styled.nav`
   background-color: black;
 `;
 
-const Navbar = ({ homeRef, menuRef, contactRef }) => {
+const Navbar = ({ homeRef, menuRef, contactRef, setNavbarRef }) => {
+  const navbarRef = useRef();
+  useEffect(() => {
+    setNavbarRef && setNavbarRef(navbarRef);
+  });
   return (
     <Nav>
       <Item onClick={() => homeRef.current.scrollIntoView()}>
